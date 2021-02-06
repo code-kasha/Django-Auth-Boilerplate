@@ -1,0 +1,41 @@
+Hello!
+
+Today, I am going to show you guys something very useful.
+
+We are going to learn how to use Django Registration to simplify our login Process.
+
+We will be using a custom user model with all available fields at the signup process.
+
+Later on, I will show you a cool way of adding a profile to a user!
+
+We will also be doing this on Linux, as well as using a live e-mail for showing the
+activation workflow.
+
+I will also show you guys a few tricks I have picked up along the way to keep my code
+cleaner for version control.
+
+
+To-Do:
+
+1] Create our Django project. 
+
+2] Set up Postgresql.
+
+3] Make our project git friendly.
+
+4] Make an app named accounts, write views for all methods and get a complete authentication system working in the end with email verification. 
+
+
+
+Pre Requisites:
+    Django - Our main App Framework.
+    Django-Registration - The package we will use for e-mail activation.
+    Pillow - Helpful python imaging Library.
+    psycopg2-binary - Postgresql connector.
+
+    # packages I like to use in development.
+    - flake8 - Linter.
+    - black  - Code Formatter.
+    - pylance - Vscode extension.
+    - Django  - Vscode extension.
+    - djaneiro - django snippets.

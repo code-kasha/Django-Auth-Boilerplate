@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Home | {% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid mx-auto text-center">
+    <p class="lead">Hello, welcome to Awesome Auth</p>
+    {% if user.is_authenticated %} 
+        <h3>{{user}}, You are welcome!</h3> 
+    {% else %}
+        <h3>eh?</h3>
+    {% endif %}
+</div>
+
+{% endblock content %}

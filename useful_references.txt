@@ -1,0 +1,31 @@
+YOUTUBE CHANNELS:
+
+1] CodingEnterpreneurs
+2] Dennis Ivy
+3] Code with stein
+4] Pyplane
+
+These are some channels that I personally enjoy watching, and if you take my word for it, they really know what they 
+are teaching. :D
+
+Here are the references we would need for the tutorial
+
+
+Django Registration
+https://pypi.org/project/django-registration/
+
+Django Crispy Forms
+https://pypi.org/project/django-crispy-forms/
+
+Django Sites 
+https://docs.djangoproject.com/en/3.1/ref/contrib/sites/
+
+Postgresql Connector
+https://docs.djangoproject.com/en/3.1/ref/contrib/postgres/
+
+Django Mail 
+https://docs.djangoproject.com/en/3.1/topics/email/
+
+Django Auth 
+https://docs.djangoproject.com/en/3.1/ref/contrib/auth/
+

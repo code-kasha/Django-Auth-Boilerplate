@@ -1,0 +1,42 @@
+{% url 'login' as login_url %}
+{% url 'register' as register_url %}
+{% url 'home' as home_url %}
+{% url 'logout' as logout_url %}
+{% url 'change_password' as change_password_url %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand">Awesome Auth</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == home_url %} active {% endif %}" href="{{home_url}}">Home</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      {% if user.is_authenticated %}
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{change_password_url}}">Change Password</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{logout_url}}">Logout</a></li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{login_url}}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{register_url}}">Register</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

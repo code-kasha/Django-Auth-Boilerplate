@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Activation Complete |{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 mx-auto text-center">
+            <p class="lead mx-auto py-2">Activation Complete!</p>
+            <p>please, <a href="{% url 'login' %}">login</a></p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

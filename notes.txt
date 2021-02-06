@@ -1,0 +1,168 @@
+The apps we require to register in INSTALLED_APPS:
+
+Django Core Apps :
+
+"django.contrib.sites",
+
+Third Party Apps:
+
+"django_registration",
+"crispy_forms",
+
+---------------------------------------------------------
+
+The additional settings required:
+
+CRISPY_TEMPLATE_PACK = "bootstrap4" # for Crispy Forms
+
+SITE_ID = 1 # For django.contrib.sites - mail related
+
+ALLOWED_HOSTS = "localhost" # for sending mails
+
+AUTH_USER_MODEL = "accounts.User" # specifying our custom user
+
+ACCOUNT_ACTIVATION_DAYS = 7 # For django-registration
+
+--------------------------------------------------------
+
+POSTGRESQL SPECIFIC SETTINGS
+
+"default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "DATABASE_NAME",
+        "USER": f"{DB_USER}", 
+        "PASSWORD": f"{DB_PASS}",
+        "HOST": "localhost",
+        "PORT": "5432",
+    }
+
+------------------------------------------------------------
+
+EMAIL SPECIFIC SETTINGS
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "YOUR EMAIL HOST"
+EMAIL_PORT = 465 / WHATEVER PORT YOUR PROVIDER SPECIFIES
+EMAIL_USE_SSL = True / EMAIL_USE_TLS = True 
+# This is mutually exclusive and you can check which one works for you.
+# I have a custom mail server on cpanel and SSL works for me.
+# People have found success using TLS on gmail.com. Try it out!
+
+EMAIL_HOST_USER = "YOUR_EMAIL" # The email you want to send mails from
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD # your email password
+
+---------------------------------------------------------
+The syntax to open files in python and get a value
+
+with open(FILE_LOCATION) as filename:
+    some_variable = filename.read().strip()
+
+This is not the most efficient way of doing this but gets the job done
+
+-------------------------------------------------------------------------
+
+Now, things related to Django-registration
+
+we need to create some templates.
+
+I will create them off screen and just use them in the live stream.
+
+For Django-Registration :
+
+# these three are related to views
+register.html
+registration_complete.html
+registration_closed.html
+
+# these two are related to activation
+activation_complete.html
+activation_failed.html
+
+# these two are related to the emails
+activation_email_subject.txt
+activation_email_body.txt
+
+
+For Changing/Reset user passwords:
+
+1] When user is logged in: ( One step )
+
+change_password.html
+
+2] User is logged out: ( email verified )
+reset_password.html
+reset_password_complete.html
+reset_password_confirm.html
+reset_password_done.html
+
+------------------------------------------------------------------
+
+
+As far as the views are considered, we need to implement the following:
+We will subclass every available class in django.contrib.auth pacakge
+as well as django-registration package
+
+From django.contrib.auth:
+------------------------
+LoginView # pass template_name and redirect_url
+LogoutView # use pass
+PasswordChangeView # pass template name and success_url
+PasswordResetView #pass template name
+PasswordResetDoneView #pass template name
+PasswordResetConfirmView #pass template name
+PasswordResetCompleteView #pass template name
+
+
+From django_registration:
+-----------------------
+RegistrationView # pass form class
+ActivationView #do a pass
+
+Generic Templateviews:
+-----------------------
+RegistrationCompleteView #pass template name
+RegistrationClosedView #pass template name
+RegistrationCompleteView #pass template name
+ActivationCompleteView #pass template name
+
+
+User Home #pass template name
+Landing page #pass template name
+
+
+--------------------------------------------------------------------
+
+About URL's
+
+The following path represent the urls we need for registration, activation, changing and reset password
+
+path("register/", RegisterView.as_view(), name="register"),
+path("register/complete/", RegistrationCompleteView.as_view(), name="django_registration_complete"),
+path("register/closed/", RegistrationClosedView.as_view(), name="django_registration_disallowed"),
+path(
+    "activation/<str:activation_key>/",
+    AccountActivationView.as_view(),
+    name="django_registration_activate",
+),
+path(
+    "activate/complete/",
+    AccountActivationCompleteView.as_view(),
+    name="django_registration_activation_complete",
+),
+path(
+    "change_password/",
+    ChangePassword.as_view(),
+    name="change_password",
+),
+path("reset_password/", ResetPassword.as_view(), name="reset_password"),
+path("reset_password_sent/", ResetPasswordDone.as_view(), name="password_reset_done"),
+path("reset/<uidb64>/<token>/", ResetPasswordConfirm.as_view(), name="password_reset_confirm"),
+path("reset_password_complete", ResetPasswordComplete.as_view(), name="password_reset_complete"),
+
+---------------------------------------------------------------------------
+
+
+
+If this is helpful to you, please let me know at akash@blabber.xyz

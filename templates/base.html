@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include 'base/meta.html' %}
+    {% include 'base/css.html' %}
+    {% block css %}{% endblock %}
+    <title>{% block title %}{% endblock %} Awesome Auth</title>
+  </head>
+  <body>
+    {% include 'base/navbar.html' %}
+    {% block content %}{% endblock %}
+    
+    {% include 'base/js.html' %}
+    {% block js %}{% endblock %}
+  </body>
+</html>
