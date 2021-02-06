@@ -1,6 +1,6 @@
 Hello!
 
-Today, I am going to show you guys something very useful.
+Today, I am going to show you all something very useful.
 
 We are going to learn how to use Django Registration to simplify our login Process.
 
@@ -11,7 +11,7 @@ Later on, I will show you a cool way of adding a profile to a user!
 We will also be doing this on Linux, as well as using a live e-mail for showing the
 activation workflow.
 
-I will also show you guys a few tricks I have picked up along the way to keep my code
+I will also show you all a few tricks I have picked up along the way to keep my code
 cleaner for version control.
 
 
@@ -19,11 +19,13 @@ To-Do:
 
 1] Create our Django project. 
 
-2] Set up Postgresql.
+2] Make our project git friendly.
 
-3] Make our project git friendly.
+3] Set up Postgresql.
 
-4] Make an app named accounts, write views for all methods and get a complete authentication system working in the end with email verification. 
+4] Set up email config.
+
+4] Make an app named accounts, write views for all methods and get a complete authentication system working in the end.
 
 
 

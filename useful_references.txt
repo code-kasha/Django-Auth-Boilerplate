@@ -29,3 +29,5 @@ https://docs.djangoproject.com/en/3.1/topics/email/
 Django Auth 
 https://docs.djangoproject.com/en/3.1/ref/contrib/auth/
 
+Project Repo:
+https://github.com/code-kasha/Django-Auth-Boilerplate
