@@ -124,7 +124,7 @@ Generic Templateviews:
 -----------------------
 RegistrationCompleteView #pass template name
 RegistrationClosedView #pass template name
-RegistrationCompleteView #pass template name
+
 ActivationCompleteView #pass template name
 
 
